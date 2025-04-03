@@ -666,17 +666,11 @@ const FAILURE_BOARDS = [
     name: "Ambiguous Multicolor",
     rules: {
       "column": [
-        [{ val: 2, count: 1 }, { val: 1, count: 1 }, {
-          val: 1,
-          count: 1,
-        }, { val: 2, count: 2 }],
+        [{ val: 2, count: 1 }, { val: 1, count: 1 }, { val: 1, count: 1 }, { val: 2, count: 2 }],
         [{ val: 1, count: 1 }, { val: 2, count: 2 }],
         [{ val: 2, count: 1 }],
         [{ val: 1, count: 3 }, { val: 2, count: 2 }],
-        [{ val: 2, count: 1 }, { val: 1, count: 1 }, {
-          val: 1,
-          count: 3,
-        }, { val: 2, count: 1 }],
+        [{ val: 2, count: 1 }, { val: 1, count: 1 }, { val: 1, count: 3 }, { val: 2, count: 1 }],
         [{ val: 1, count: 1 }, { val: 2, count: 2 }],
         [{ val: 2, count: 1 }, { val: 1, count: 1 }, {
           val: 2,

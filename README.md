@@ -9,7 +9,7 @@ I've used it to solve boards up to 20x20 with 5 colors. It currently has no abil
 ## Installation:
 ```bash
 # deno
-deno add jsr:@jzumun/nonogram-solver@0.1.0
+deno add jsr:@jzumun/nonogram-solver
 
 #node
 npx jsr add @jzumun/nonogram-solver

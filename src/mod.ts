@@ -12,9 +12,15 @@ type SolutionMap<Dim extends "x" | "y"> = Record<
 
 export type { Board, Move, Rule, Rules, Solution };
 
+/**
+ * Thrown when the solver cannot find a solution.
+ */
 export class SolveError {
+  /** Reason why the solver failed */
   message: string;
+  /** The row indices that have unsolved tiles */
   unsolvedRows: number[];
+  /** The column indices that have unsolved tiles */
   unsolvedColumns: number[];
   constructor(
     message: string,
@@ -27,6 +33,22 @@ export class SolveError {
   }
 }
 
+/**
+ * Given the rules that describes a puzzle, will attempt to generate a completely solved board.
+ * 
+ * ```ts
+ * const board = solve(rules);
+ * if (board.solved) {
+ *   renderBoard(board.board);
+ * } else {
+ *   printError(board.message);
+ *   highlightUnsolved(board.unsolved.rows, board.unsolved.columns);
+ * }
+ * ```
+ * 
+ * @param rules - the rules describing the board
+ * @returns the result of the solution attempt.
+ */
 export function solve(rules: Rules): Solution {
   const board = generateEmptyBoardFor(rules);
   try {
@@ -55,6 +77,27 @@ export function solve(rules: Rules): Solution {
   };
 }
 
+/**
+ * Given the rules that describe a puzzle, will yield moves that can be used to fill up a board.
+ * Useful for creating animations.
+ * 
+ * ```ts
+ * try {
+ *   for (const move of generateMoves(rules)) {
+ *     board[move.x][move.y] = move.next;
+ *     renderBoard(board);
+ *   }
+ * } catch (err) {
+ *     printError(err.message);
+ *     highlightUnsolved(err.unsolvedRows, err.unsolvedColumns);
+ * }
+ * ```
+ * 
+ * @param rules - rules that describe a board
+ * @param board - a board that will be mutated by applying the provided moves to them.
+ * @throws {SolveError} if the board cannot be fully solved
+ * @returns a generator of {@link Move}s to apply to a board
+ */
 export function* generateMoves(
   rules: Rules,
   board: Board = generateEmptyBoardFor(rules),

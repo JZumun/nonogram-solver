@@ -1,0 +1,14 @@
+{
+  "name": "@jzumun/nonogram-solver",
+  "version": "0.1.0",
+  "exports": "./src/mod.ts",
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "imports": {
+    "@std/expect": "jsr:@std/expect@^1.0.14"
+  },
+  "fmt": {
+    "indentWidth": 2
+  }
+}

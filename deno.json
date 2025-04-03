@@ -1,6 +1,6 @@
 {
   "name": "@jzumun/nonogram-solver",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "exports": "./src/mod.ts",
   "tasks": {
     "dev": "deno run --watch main.ts"
@@ -10,5 +10,12 @@
   },
   "fmt": {
     "indentWidth": 2
+  },
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "src/**/*.ts"
+    ]
   }
 }
